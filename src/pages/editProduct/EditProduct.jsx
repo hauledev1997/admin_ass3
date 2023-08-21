@@ -44,7 +44,8 @@ const EditProduct = () => {
     const postEditProd = async () => {
       const response = await axios.post(
         `https://haule2.onrender.com/admin/edit-product/${prodId}`,
-        editProd
+        editProd,
+        { headers }
       );
 
       if (response.status === 201) {

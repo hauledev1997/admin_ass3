@@ -44,7 +44,8 @@ const Products = () => {
     const postSearch = async () => {
       const response = await axios.post(
         'https://haule2.onrender.com/admin/search',
-        data
+        data,
+        { headers }
       );
       console.log(response.data);
       setSearchProducts(response.data);
@@ -68,7 +69,7 @@ const Products = () => {
         .catch(err => console.log(err));
     };
 
-    if (window.confirm('Delete Hotel?')) {
+    if (window.confirm('Delete product?')) {
       postDeleteProd();
     } else {
       return;

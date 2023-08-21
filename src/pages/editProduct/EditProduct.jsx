@@ -18,9 +18,13 @@ const EditProduct = () => {
   const location = useLocation();
 
   const prodId = location.state.prodId;
-
+  const headers = {
+    authorization: 'Bearer ' + localStorage.getItem('token'),
+  };
   useEffect(() => {
-    fetch(`https://haule2.onrender.com/admin/edit-product/${prodId}`)
+    fetch(`https://haule2.onrender.com/admin/edit-product/${prodId}`, {
+      headers,
+    })
       .then(res => res.json())
       .then(data => {
         setEditProd(data);
